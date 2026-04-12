@@ -5,18 +5,18 @@
 ![Email](https://img.shields.io/badge/Email-guochenwang710%40gmail.com-red)
 
 <p align="right">
-  🌐 Language: English | <a href="./README.zh-CN.md">Chinese</a>
+  🌐 Language: <a href="./README.md">English</a> | Chinese
 </p>
 
-> Turn DOM element into a liquid glass UI with a single class `class="lggc"`.
+> 只需添加一个类 `class="lggc"`，即可将 DOM 元素变为液态玻璃 UI
 
-## 1. 🚀 Installation
+## 1. 🚀 安装
 
-### Local / direct usage
+### 本地 / 直接使用
 
 ```html
 <link rel="stylesheet" href="./dist/lggc.css" /> 
- <!-- or  -->
+ <!-- 或者  -->
 <link rel="stylesheet" href="./dist/lggc.min.css" />
 ```
 
@@ -24,7 +24,7 @@
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.css" />
-<!-- or -->
+<!-- 或者 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.min.css" />
 ```
 
@@ -33,12 +33,12 @@
 ```bash
 npm install @guochenwang/lggc
 ```
-Then you can find css files in `./node_modules/@guochenwang/lggc/dist/lggc.min.css`
+然后你可以在 `./node_modules/@guochenwang/lggc/dist/lggc.min.css` 中找到 CSS 文件。
 ```bash
 import '@guochenwang/lggc/dist/lggc.min.css'
 ```
 
-## 2. 🚀 Usage
+## 2. 🚀 用法
 
 ### CSS
 
@@ -46,9 +46,9 @@ import '@guochenwang/lggc/dist/lggc.min.css'
 <div class="lggc">Hello Liquid Glass</div>
 ```
 
-### Or you want to fine-tuning
+### 或者你想进一步微调
 
-The following variables are public interfaces:
+以下变量是公开接口：
 
 - `--lggc-radius`
 - `--lggc-padding`
@@ -57,7 +57,7 @@ The following variables are public interfaces:
 - `--lggc-blur`
 - `--lggc-highlight`
 
-Example:
+示例：
 
 ```html
 <div
@@ -70,19 +70,19 @@ Example:
 </div>
 ```
 
-## 3. Demo
+## 3. 演示
 
-Open [welcome page](https://u7663394.github.io/LGGC-liquid-glass/) to preview the effect.
+打开 [官网/欢迎页面](https://u7663394.github.io/LGGC-liquid-glass/) 预览效果。
 
 ![demo](assets/demo.png)
 
-## 4. Features
+## 4. 特性
 
-- Liquid glass visual effect
-- Single-class usage with `class="lggc"`
-- CSS-only and open-source
-- Super lightweight
+- 液态玻璃视觉效果
+- 只需单个类即可使用，即 class="lggc"
+- 纯 CSS 且开源
+- 超轻量
 
-## 5. Inspiration
+## 5. 灵感来源
 
-This work draws inspiration from [a video on Bilibili](https://www.bilibili.com/video/BV1J8QSBqEpy/?spm_id_from=333.337.search-card.all.click). Special thanks to the [creator of the video](https://space.bilibili.com/91370417?spm_id_from=333.788.upinfo.detail.click) for sharing such inspiring content and ideas.
+本作品的灵感来自 [Bilibili 上的一条视频](https://www.bilibili.com/video/BV1J8QSBqEpy/?spm_id_from=333.337.search-card.all.click). 特别感谢 [视频 up 主](https://space.bilibili.com/91370417?spm_id_from=333.788.upinfo.detail.click) 分享了如此有启发性的内容与创意。
