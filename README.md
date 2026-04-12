@@ -1,53 +1,85 @@
-# LGGC — Liquid Glass CSS
+# LGGC: Liquid Glass by GuoChen
 
 > Turn DOM element into a liquid glass UI with a single class.
 
-
 ## 1. Features
 
-* Liquid glass visual effect
-* Super lightweight
-* One-class usage (`class="lggc"`)
-* Fully open-source
+- Liquid glass visual effect
+- Single-class usage with `class="lggc"`
+- CSS-only and open-source
+- Super lightweight
 
+## 2. 🚀 Installation
 
-## 2. Installation
+### Local / direct browser usage
+
+```html
+<link rel="stylesheet" href="./dist/lggc.css" />
+```
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc/dist/lggc.css">
+<!-- TODO: publish to npm -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc@0.1.0/dist/lggc.css" />
 ```
 
 ### NPM
 
 ```bash
 npm install lggc
+
+import "lggc/dist/lggc.css"; # in JS
+@import "lggc/dist/lggc.css"; # in css
 ```
 
 ## 3. 🚀 Usage
 
+### CSS only
+
 ```html
-<div class="lggc">
-  Hello Liquid Glass
+<!-- 1. import css file -->
+<link rel="stylesheet" href="./dist/lggc.css" />
+<!-- 2. add class="lggc" -->
+<div class="lggc">Hello Liquid Glass</div>
+```
+
+## Or you want to fine-tuning
+
+The following variables are stable public interfaces:
+
+- `--lggc-radius`
+- `--lggc-padding`
+- `--lggc-bg`
+- `--lggc-border`
+- `--lggc-blur`
+- `--lggc-highlight`
+
+Example:
+
+```html
+<div
+  class="lggc"
+  style="
+    --lggc-radius: 28px;
+    --lggc-padding: 1.25rem 1.5rem;
+    --lggc-bg: rgba(255,255,255,0.18);
+  "
+>
+  Customized glass
 </div>
 ```
 
 ## 4. Demo
 
-Put demo here.
+Open [index.html](./index.html) to preview the welcome page locally.
 
+![demo](assets/demo.png)
 
 ## 5. Inspiration
 
 Inspired by ...
 
-
-## 6. Contributing
-
-Pull requests are welcome!
-
-
-## 7. License
+## 6. License
 
 [MIT](./LICENSE)

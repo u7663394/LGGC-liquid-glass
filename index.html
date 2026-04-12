@@ -3,57 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LGGC</title>
+    <title>LGGC Welcome Page</title>
+    <link rel="stylesheet" href="./dist/lggc.css" />
+    <style>
+      :root {
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(255, 255, 255, 0.9),
+            transparent 32%
+          ),
+          linear-gradient(135deg, #dbeafe 0%, #f8fafc 35%, #c7d2fe 100%);
+        color: #0f172a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+      main {
+        width: min(960px, 100%);
+        display: grid;
+        gap: 1.5rem;
+      }
+      .hero {
+        display: grid;
+        gap: 1rem;
+      }
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+      }
+      .card {
+        display: grid;
+        gap: 0.4rem;
+        width: min(100%, 420px);
+        min-height: 180px;
+        align-content: start;
+        --lggc-radius: 32px;
+        --lggc-padding: 1.25rem;
+        --lggc-bg: rgba(255, 255, 255, 0.18);
+      }
+      .badge {
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+      .headline {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+      }
+      .muted {
+        margin: 0;
+        max-width: 38rem;
+        color: rgba(15, 23, 42, 0.72);
+        line-height: 1.6;
+      }
+      .button {
+        width: 64px;
+        height: 64px;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        font-size: 1.75rem;
+        --lggc-radius: 50%;
+      }
+      code {
+        font-family:
+          "SFMono-Regular", SFMono-Regular, ui-monospace, Menlo, Monaco,
+          Consolas, monospace;
+        font-size: 0.95em;
+      }
+    </style>
   </head>
   <body>
-    <div style="width: 300px; height: 150px" class="liquid"></div>
-    <button class="liquid circle" style="width: 50px; height: 50px">+</button>
+    <main>
+      <section class="hero">
+        <span class="lggc badge">LGGC: Liquid Glass by GuoChen</span>
+        <h1 class="headline">
+          Turn DOM elements into liquid glass UI with one class.
+        </h1>
+        <p class="muted">
+          Include <code>lggc.css</code> and apply <code>class="lggc"</code> to
+          any DOM element you want to render as liquid glass.
+        </p>
+      </section>
+      <section class="stack">
+        <div class="lggc">Hello Liquid Glass</div>
+        <button class="lggc button" type="button" aria-label="Add item">
+          +
+        </button>
+        <a
+          class="lggc"
+          href="https://github.com/u7663394/LGGC-liquid-glass"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open docs
+        </a>
+      </section>
+      <section class="stack">
+        <article class="lggc card">
+          <strong>Single class</strong>
+          <p class="muted">
+            Just add <code>class="lggc"</code> on a DOM element and it renders
+            with the liquid glass surface like this!!!.
+          </p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
-
-<style>
-  .liquid {
-    position: relative;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(2px);
-    border: 1px double rgba(51, 51, 51, 0.08);
-    box-shadow:
-      inset 2px -2px 1px -1px rgba(255, 255, 255, 0.9),
-      inset -2px 2px 1px -1px rgba(255, 255, 255, 0.9),
-      inset 0 0 2px rgba(0, 0, 0, 0.8),
-      0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .liquid::before {
-    content: "";
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 16px);
-    height: calc(100% - 16px);
-    border-radius: inherit;
-    border: 1px solid rgba(0, 0, 0, 0.9);
-    filter: blur(8px);
-  }
-
-  .liquid::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    filter: blur(3px);
-    background: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      transparent 25%,
-      transparent 75%,
-      rgba(255, 255, 255, 0.8) 100%
-    );
-  }
-
-  .circle {
-    border-radius: 50%;
-  }
-</style>
