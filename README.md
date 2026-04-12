@@ -14,14 +14,17 @@
 ### Local / direct browser usage
 
 ```html
-<link rel="stylesheet" href="./dist/lggc.css" />
+<link rel="stylesheet" href="./dist/lggc.css" /> 
+ <!-- or  -->
+<link rel="stylesheet" href="./dist/lggc.min.css" />
 ```
 
 ### CDN
 
 ```html
-<!-- TODO: publish to npm -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc@0.1.0/dist/lggc.css" />
+<!-- or -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc@0.1.0/dist/lggc.min.css" />
 ```
 
 ### NPM
@@ -29,8 +32,7 @@
 ```bash
 npm install lggc
 
-import "lggc/dist/lggc.css"; # in JS
-@import "lggc/dist/lggc.css"; # in css
+# test how to import
 ```
 
 ## 3. 🚀 Usage
@@ -38,9 +40,6 @@ import "lggc/dist/lggc.css"; # in JS
 ### CSS only
 
 ```html
-<!-- 1. import css file -->
-<link rel="stylesheet" href="./dist/lggc.css" />
-<!-- 2. add class="lggc" -->
 <div class="lggc">Hello Liquid Glass</div>
 ```
 

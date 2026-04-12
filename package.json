@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Turn DOM element into a liquid glass UI with a single class.",
   "style": "dist/lggc.css",
+  "main": "dist/lggc.min.css",
   "files": [
     "dist",
     "README.md",
