@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LGGC</title>
+  </head>
+  <body>
+    <div style="width: 300px; height: 150px" class="liquid"></div>
+    <button class="liquid circle" style="width: 50px; height: 50px">+</button>
+  </body>
+</html>
+
+<style>
+  .liquid {
+    position: relative;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(2px);
+    border: 1px double rgba(51, 51, 51, 0.08);
+    box-shadow:
+      inset 2px -2px 1px -1px rgba(255, 255, 255, 0.9),
+      inset -2px 2px 1px -1px rgba(255, 255, 255, 0.9),
+      inset 0 0 2px rgba(0, 0, 0, 0.8),
+      0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .liquid::before {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border-radius: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    filter: blur(8px);
+  }
+
+  .liquid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    filter: blur(3px);
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+  }
+
+  .circle {
+    border-radius: 50%;
+  }
+</style>
