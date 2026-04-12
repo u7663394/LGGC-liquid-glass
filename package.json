@@ -1,7 +1,7 @@
 {
-  "name": "lggc",
+  "name": "@guochenwang/lggc",
   "version": "0.1.0",
-  "description": "Turn DOM element into a liquid glass UI with a single class.",
+  "description": "Turn DOM elements into liquid glass UI with a single class.",
   "style": "dist/lggc.css",
   "main": "dist/lggc.min.css",
   "files": [
@@ -14,7 +14,13 @@
     "ui",
     "glassmorphism",
     "liquid-glass",
-    "frontend"
+    "frontend",
+    "liquid glass",
+    "glass ui",
+    "css effects"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@guochenwang/lggc": "^0.1.0"
+  }
 }

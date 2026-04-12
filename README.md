@@ -1,17 +1,10 @@
 # LGGC: Liquid Glass by GuoChen
 
-> Turn DOM element into a liquid glass UI with a single class.
+> Turn DOM element into a liquid glass UI with a single class `class="lggc"`.
 
-## 1. Features
+## 1. 🚀 Installation
 
-- Liquid glass visual effect
-- Single-class usage with `class="lggc"`
-- CSS-only and open-source
-- Super lightweight
-
-## 2. 🚀 Installation
-
-### Local / direct browser usage
+### Local / direct usage
 
 ```html
 <link rel="stylesheet" href="./dist/lggc.css" /> 
@@ -22,22 +15,24 @@
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc@0.1.0/dist/lggc.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.css" />
 <!-- or -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lggc@0.1.0/dist/lggc.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.min.css" />
 ```
 
 ### NPM
 
 ```bash
-npm install lggc
-
-# test how to import
+npm install @guochenwang/lggc
+```
+Then you can find css files in `./node_modules/@guochenwang/lggc/dist/lggc.min.css`
+```bash
+import '@guochenwang/lggc/dist/lggc.min.css'
 ```
 
-## 3. 🚀 Usage
+## 2. 🚀 Usage
 
-### CSS only
+### CSS
 
 ```html
 <div class="lggc">Hello Liquid Glass</div>
@@ -45,7 +40,7 @@ npm install lggc
 
 ## Or you want to fine-tuning
 
-The following variables are stable public interfaces:
+The following variables are public interfaces:
 
 - `--lggc-radius`
 - `--lggc-padding`
@@ -62,23 +57,24 @@ Example:
   style="
     --lggc-radius: 28px;
     --lggc-padding: 1.25rem 1.5rem;
-    --lggc-bg: rgba(255,255,255,0.18);
-  "
->
+    --lggc-bg: rgba(255,255,255,0.18);">
   Customized glass
 </div>
 ```
 
-## 4. Demo
+## 3. Demo
 
-Open [index.html](./index.html) to preview the welcome page locally.
+Open [welcome page](https://u7663394.github.io/LGGC-liquid-glass/) to preview the effect.
 
 ![demo](assets/demo.png)
 
+## 4. Features
+
+- Liquid glass visual effect
+- Single-class usage with `class="lggc"`
+- CSS-only and open-source
+- Super lightweight
+
 ## 5. Inspiration
 
-Inspired by ...
-
-## 6. License
-
-[MIT](./LICENSE)
+This work draws inspiration from [a video on Bilibili](https://www.bilibili.com/video/BV1J8QSBqEpy/?spm_id_from=333.337.search-card.all.click). Special thanks to the [creator of the video](https://space.bilibili.com/91370417?spm_id_from=333.788.upinfo.detail.click) for sharing such inspiring content and ideas.
