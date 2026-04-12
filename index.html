@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LGGC Welcome Page</title>
-    <!-- <link rel="stylesheet" href="./dist/lggc.css" /> -->
     <link rel="stylesheet" href="./dist/lggc.min.css" />
     <style>
       :root {
+        color: #10203a;
         background:
           radial-gradient(
             circle at top,
             rgba(255, 255, 255, 0.9),
             transparent 32%
           ),
-          linear-gradient(135deg, #dbeafe 0%, #f8fafc 35%, #c7d2fe 100%);
+          linear-gradient(135deg, #a5c8f6 0%, #f2f6e2 50%, #fdcece 100%);
         color: #0f172a;
       }
       * {
@@ -23,103 +23,374 @@
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 2rem;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: inherit;
       }
-      main {
-        width: min(960px, 100%);
-        display: grid;
-        gap: 1.5rem;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .page {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 24px;
       }
       .hero {
         display: grid;
-        gap: 1rem;
+        gap: 12px;
+        padding: 26px 0 10px;
       }
-      .stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-      }
-      .card {
-        display: grid;
-        gap: 0.4rem;
-        width: min(100%, 420px);
-        min-height: 180px;
-        align-content: start;
+      .hero-title {
+        display: inline-block;
+        width: fit-content;
+        padding: 20px 24px;
+        font-size: clamp(1.8rem, 4vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.045em;
         --lggc-radius: 32px;
-        --lggc-padding: 1.25rem;
-        --lggc-bg: rgba(255, 255, 255, 0.18);
+        --lggc-bg: rgba(255, 255, 255, 0.22);
       }
-      .badge {
-        font-size: 0.92rem;
-        font-weight: 600;
-      }
-      .headline {
+      .hero-note {
         margin: 0;
-        font-size: clamp(2rem, 5vw, 4rem);
-        line-height: 0.94;
-        letter-spacing: -0.04em;
-      }
-      .muted {
-        margin: 0;
-        max-width: 38rem;
-        color: rgba(15, 23, 42, 0.72);
+        max-width: 44rem;
+        font-size: 0.98rem;
         line-height: 1.6;
+        color: rgba(16, 32, 58, 0.72);
       }
-      .button {
-        width: 64px;
-        height: 64px;
-        padding: 0;
-        border: 0;
-        cursor: pointer;
-        font-size: 1.75rem;
-        --lggc-radius: 50%;
-      }
-      code {
+      .inline-code {
         font-family:
           "SFMono-Regular", SFMono-Regular, ui-monospace, Menlo, Monaco,
           Consolas, monospace;
         font-size: 0.95em;
       }
+      .examples {
+        display: grid;
+        gap: 18px;
+        margin-top: 16px;
+      }
+      .example-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .example-card,
+      .sample-box,
+      .sample-button,
+      .sample-link,
+      .sample-input,
+      .sample-panel,
+      .sample-nav,
+      .sample-pill,
+      .copyright-chip {
+        --lggc-bg: rgba(255, 255, 255, 0.22);
+      }
+      .example-card {
+        display: grid;
+        gap: 16px;
+        min-height: 200px;
+        padding: 18px;
+        align-content: start;
+        --lggc-radius: 28px;
+      }
+      .example-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .example-head strong {
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+      .example-type {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(16, 32, 58, 0.56);
+      }
+      .example-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: rgba(16, 32, 58, 0.68);
+      }
+
+      .sample-box {
+        width: fit-content;
+        padding: 14px 18px;
+        --lggc-radius: 22px;
+      }
+
+      .sample-button {
+        border: 0;
+        padding: 14px 20px;
+        font: inherit;
+        color: inherit;
+        background: transparent;
+        cursor: pointer;
+        --lggc-radius: 999px;
+      }
+      .button-row,
+      .link-row,
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .sample-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 18px;
+        --lggc-radius: 999px;
+      }
+      .sample-input {
+        width: 100%;
+        border: 0;
+        outline: none;
+        padding: 14px 16px;
+        font: inherit;
+        color: inherit;
+        background: transparent;
+        --lggc-radius: 18px;
+      }
+      .sample-input::placeholder {
+        color: rgba(16, 32, 58, 0.45);
+      }
+      .sample-panel {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+        --lggc-radius: 24px;
+      }
+      .sample-panel strong {
+        font-size: 0.98rem;
+      }
+      .sample-panel p {
+        margin: 0;
+        font-size: 0.93rem;
+        line-height: 1.55;
+      }
+      .sample-nav {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 14px;
+        align-items: center;
+        padding: 14px;
+        --lggc-radius: 24px;
+      }
+      .nav-brand {
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .nav-links a,
+      .nav-action,
+      .sample-pill {
+        padding: 10px 14px;
+        font-size: 0.92rem;
+        --lggc-radius: 999px;
+      }
+      .nav-action {
+        border: 0;
+        font: inherit;
+        color: inherit;
+        background: transparent;
+        cursor: pointer;
+      }
+      .copyright {
+        margin-top: 24px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 18px;
+        align-items: center;
+        --lggc-radius: 30px;
+        --lggc-bg: rgba(255, 255, 255, 0.24);
+      }
+      .copyright-main {
+        display: grid;
+        gap: 8px;
+      }
+      .copyright-main strong {
+        font-size: 1rem;
+      }
+      .copyright-main p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(16, 32, 58, 0.72);
+      }
+      .copyright-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+      }
+      .copyright-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 11px 15px;
+        font-size: 0.92rem;
+        --lggc-radius: 999px;
+      }
+      .sample-link:hover,
+      .copyright a:hover,
+      .nav-links a:hover {
+        opacity: 0.88;
+      }
     </style>
   </head>
   <body>
-    <main>
+    <main class="page">
       <section class="hero">
-        <span class="lggc badge">LGGC: Liquid Glass by GuoChen</span>
-        <h1 class="headline">
-          Turn DOM elements into liquid glass UI with one class.
-        </h1>
-        <p class="muted">
-          Include <code>lggc.css</code> and apply <code>class="lggc"</code> to
-          any DOM element you want to render as liquid glass.
+        <div class="lggc hero-title">LGGC: Liquid Glass by GuoChen</div>
+        <p class="hero-note">
+          Import <span class="inline-code">lggc.min.css</span>, then apply it to
+          your existing DOM elements by adding
+          <span class="inline-code">class="lggc"</span>
         </p>
       </section>
-      <section class="stack">
-        <div class="lggc">Hello Liquid Glass</div>
-        <button class="lggc button" type="button" aria-label="Add item">
-          +
-        </button>
-        <a
-          class="lggc"
-          href="https://github.com/u7663394/LGGC-liquid-glass"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open docs
-        </a>
+
+      <section class="examples" aria-label="LGGC DOM examples">
+        <div class="lggc sample-nav" aria-label="Navigation example">
+          <div class="nav-brand">Example</div>
+          <div class="nav-links">
+            <a class="lggc" href="#">Modern</a>
+            <a class="lggc" href="#">Lightweight</a>
+            <a class="lggc" href="#">Simple</a>
+            <a class="lggc" href="#">CSS</a>
+          </div>
+          <div class="nav-brand">Welcome</div>
+        </div>
+
+        <div class="example-grid">
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>div</strong>
+              <span class="example-type">block</span>
+            </div>
+            <p>A block element with the LGGC added.</p>
+            <div class="lggc sample-box">
+              I am div <br />
+              Add me anywhere
+            </div>
+          </article>
+
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>button</strong>
+              <span class="example-type">action</span>
+            </div>
+            <p>Buttons can stay light, rounded, and readable.</p>
+            <div class="button-row">
+              <button class="lggc sample-button" type="button">Click me</button>
+              <button class="lggc sample-button" type="button">
+                Get Started
+              </button>
+              <button
+                class="lggc sample-button"
+                type="button"
+                style="
+                  width: 46px;
+                  height: 46px;
+                  font-weight: bold;
+                  font-size: 18px;
+                "
+              >
+                +
+              </button>
+            </div>
+          </article>
+
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>a</strong>
+              <span class="example-type">link</span>
+            </div>
+            <p>Anchors work well as soft glass links.</p>
+            <div class="link-row">
+              <a
+                class="lggc sample-link"
+                href="https://github.com/u7663394/LGGC-liquid-glass"
+                target="_blank"
+                rel="noreferrer"
+                style="text-decoration: underline"
+              >
+                Open Source Repo
+              </a>
+            </div>
+          </article>
+
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>input</strong>
+              <span class="example-type">field</span>
+            </div>
+            <p>Suitable for search, or use in any form areas.</p>
+            <input class="lggc sample-input" placeholder="Type something..." />
+          </article>
+
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>card</strong>
+              <span class="example-type">content</span>
+            </div>
+            <p>A content card.</p>
+            <article class="lggc" style="--lggc-radius: 10px">
+              <p>
+                A lightweight frontend library <br />
+                to create liquid glass UI effects. <br />Modern, simple, and
+                open-source.
+              </p>
+            </article>
+          </article>
+
+          <article class="lggc example-card">
+            <div class="example-head">
+              <strong>diy</strong>
+              <span class="example-type">anything</span>
+            </div>
+            <p>Create anything you want</p>
+            <div class="lggc">Your own idea</div>
+          </article>
+        </div>
       </section>
-      <section class="stack">
-        <article class="lggc card">
-          <strong>Single class</strong>
-          <p class="muted">
-            Just add <code>class="lggc"</code> on a DOM element and it renders
-            with the liquid glass surface like this!!!.
+
+      <footer class="lggc copyright">
+        <div class="copyright-main">
+          <strong>Copyright © Guochen Wang</strong>
+          <p>
+            Welcome to use, modify, and share feedback. Email me or open on
+            GitHub ==>
           </p>
-        </article>
-      </section>
+        </div>
+        <div class="copyright-actions">
+          <a
+            style="text-decoration: underline"
+            class="lggc copyright-chip"
+            href="mailto:guochenwang710@gmail.com"
+          >
+            guochenwang710@gmail.com
+          </a>
+          <a
+            class="lggc copyright-chip"
+            href="https://github.com/u7663394/LGGC-liquid-glass"
+            target="_blank"
+            rel="noreferrer"
+            style="text-decoration: underline"
+          >
+            Github Source Repository
+          </a>
+        </div>
+      </footer>
     </main>
   </body>
 </html>
