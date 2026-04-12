@@ -1,8 +1,8 @@
 # LGGC: Liquid Glass by GuoChen
 
-![Author](https://img.shields.io/badge/Author-Guochen%20Wang-blue)
+[![Author](https://img.shields.io/badge/Author-Guochen%20Wang-blue)](https://github.com/u7663394)
 [![GitHub](https://img.shields.io/badge/GitHub-u7663394%20(Guochen%20Wang)-black?logo=github)](https://github.com/u7663394)
-![Email](https://img.shields.io/badge/Email-guochenwang710%40gmail.com-red)
+[![Email](https://img.shields.io/badge/Email-guochenwang710%40gmail.com-red)](mailto:guochenwang710@gmail.com)
 
 <p align="right">
   🌐 Language: <a href="./README.md">English</a> | Chinese
