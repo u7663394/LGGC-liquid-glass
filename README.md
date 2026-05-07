@@ -76,6 +76,8 @@ Open [welcome page](https://u7663394.github.io/LGGC-liquid-glass/) to preview th
 
 ![demo](assets/demo.png)
 
+![effect](assets/effect.png)
+
 ## 4. Features
 
 - Liquid glass visual effect

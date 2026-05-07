@@ -76,6 +76,8 @@ import '@guochenwang/lggc/dist/lggc.min.css'
 
 ![demo](assets/demo.png)
 
+![effect](assets/effect.png)
+
 ## 4. 特性
 
 - 液态玻璃视觉效果
