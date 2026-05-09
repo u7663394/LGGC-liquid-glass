@@ -8,6 +8,10 @@
   🌐 Language: <a href="./README.md">English</a> | Chinese
 </p>
 
+<video src="./video/lggc-intro.mp4" controls width="100%">
+  您的浏览器不支持在此网页播放视频。
+</video>
+
 > 只需添加一个类 `class="lggc"`，即可将 DOM 元素变为液态玻璃 UI
 
 ## 1. 🚀 安装

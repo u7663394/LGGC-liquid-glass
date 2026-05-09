@@ -8,6 +8,10 @@
   🌐 Language: English | <a href="./README.zh-CN.md">Chinese</a>
 </p>
 
+<video src="./video/lggc-intro.mp4" controls width="100%">
+  Your browser does not support the video tag.
+</video>
+
 > Turn DOM element into a liquid glass UI with a single class `class="lggc"`.
 
 ## 1. 🚀 Installation
