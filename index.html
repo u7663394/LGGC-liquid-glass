@@ -26,9 +26,16 @@
         font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         color: inherit;
       }
+      body.modal-open {
+        overflow: hidden;
+      }
       a {
         color: inherit;
         text-decoration: none;
+      }
+      button,
+      input {
+        font: inherit;
       }
       .page {
         width: min(1080px, calc(100% - 32px));
@@ -86,6 +93,7 @@
         --lggc-bg: rgba(255, 255, 255, 0.22);
       }
       .example-card {
+        position: relative;
         display: grid;
         gap: 16px;
         min-height: 200px;
@@ -94,6 +102,7 @@
         --lggc-radius: 28px;
       }
       .example-head {
+        position: static;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -102,6 +111,9 @@
       .example-head strong {
         font-size: 1rem;
         letter-spacing: 0.01em;
+      }
+      .example-head-main {
+        display: contents;
       }
       .example-type {
         font-size: 0.82rem;
@@ -114,6 +126,66 @@
         font-size: 0.95rem;
         line-height: 1.55;
         color: rgba(16, 32, 58, 0.68);
+      }
+      .compare-open {
+        position: absolute;
+        z-index: 4;
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        min-width: 0;
+        min-height: 0;
+        border: 1px solid rgba(16, 32, 58, 0.1);
+        border-radius: 10px;
+        padding: 0;
+        color: rgba(16, 32, 58, 0.72);
+        background:
+          linear-gradient(currentColor, currentColor) center / 1.5px 16px
+            no-repeat,
+          rgba(255, 255, 255, 0.46);
+        cursor: pointer;
+        font-size: 0;
+        line-height: 0;
+        box-shadow:
+          inset 1px 1px 0 rgba(255, 255, 255, 0.7),
+          0 8px 18px rgba(16, 32, 58, 0.1);
+        backdrop-filter: blur(10px) saturate(150%);
+        -webkit-backdrop-filter: blur(10px) saturate(150%);
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease;
+      }
+      .compare-open::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        bottom: 7px;
+        left: 6px;
+        width: 8px;
+        border: 1.5px solid currentColor;
+        border-right: 0;
+        border-radius: 3px 1px 1px 3px;
+        opacity: 0.86;
+      }
+      .compare-open::after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        right: 6px;
+        bottom: 7px;
+        width: 8px;
+        border: 1.5px solid currentColor;
+        border-left: 0;
+        border-radius: 1px 3px 3px 1px;
+        opacity: 0.86;
+      }
+      .compare-open:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.66);
+      }
+      .compare-open:active {
+        transform: translateY(0);
       }
 
       .sample-box {
@@ -205,6 +277,248 @@
         background: transparent;
         cursor: pointer;
       }
+
+      .native-box,
+      .native-link,
+      .native-panel {
+        border: 1px solid rgba(16, 32, 58, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 18px rgba(16, 32, 58, 0.07);
+      }
+      .native-box {
+        width: fit-content;
+        padding: 14px 18px;
+      }
+      .native-button {
+        min-height: 46px;
+        border: 1px solid rgba(16, 32, 58, 0.16);
+        border-radius: 12px;
+        padding: 14px 20px;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(16, 32, 58, 0.07);
+      }
+      .native-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 14px 18px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .native-input {
+        width: 100%;
+        max-width: 420px;
+        border: 1px solid rgba(16, 32, 58, 0.16);
+        border-radius: 12px;
+        outline: none;
+        padding: 14px 16px;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 18px rgba(16, 32, 58, 0.07);
+      }
+      .native-input::placeholder {
+        color: rgba(16, 32, 58, 0.45);
+      }
+      .native-panel {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+      }
+
+      .compare-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        padding: 18px;
+        background: rgba(10, 18, 30, 0.28);
+        backdrop-filter: blur(16px) saturate(140%);
+        -webkit-backdrop-filter: blur(16px) saturate(140%);
+      }
+      .compare-modal.is-open {
+        display: grid;
+        place-items: center;
+      }
+      .compare-dialog {
+        width: min(1180px, 100%);
+        height: min(760px, calc(100vh - 36px));
+        min-height: 420px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.74);
+        border-radius: 24px;
+        background: #eef3f1;
+        box-shadow: 0 34px 90px rgba(10, 18, 30, 0.28);
+        --split: 50%;
+      }
+      .compare-canvas {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        touch-action: none;
+        user-select: none;
+      }
+      .modal-layer {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: clamp(72px, 10vw, 110px) clamp(18px, 6vw, 64px)
+          clamp(24px, 5vw, 52px);
+      }
+      .modal-layer.native {
+        z-index: 1;
+        background:
+          radial-gradient(
+            circle at 28% 22%,
+            rgba(255, 255, 255, 0.9),
+            transparent 30%
+          ),
+          linear-gradient(135deg, #edf5fb 0%, #f6f7ec 48%, #fff1ee 100%);
+      }
+      .modal-layer.enhanced {
+        z-index: 2;
+        clip-path: inset(0 calc(100% - var(--split)) 0 0);
+        background:
+          radial-gradient(
+            circle at 28% 22%,
+            rgba(255, 255, 255, 0.92),
+            transparent 30%
+          ),
+          linear-gradient(135deg, #edf5fb 0%, #f6f7ec 48%, #fff1ee 100%);
+      }
+      .modal-content {
+        width: min(760px, 100%);
+        min-height: 220px;
+        display: grid;
+        place-items: center;
+      }
+      .modal-content .sample-input {
+        width: min(420px, 100%);
+      }
+      .modal-content .sample-panel,
+      .modal-content .native-panel {
+        width: min(540px, 100%);
+      }
+      .modal-content .button-row,
+      .modal-content .link-row {
+        justify-content: center;
+      }
+      .compare-meta {
+        position: absolute;
+        z-index: 8;
+        top: 20px;
+        left: 22px;
+        display: grid;
+        gap: 4px;
+        pointer-events: none;
+      }
+      .compare-meta h2 {
+        margin: 0;
+        font-size: clamp(1.25rem, 3vw, 2.2rem);
+        line-height: 1.1;
+      }
+      .compare-meta p {
+        margin: 0;
+        color: rgba(16, 32, 58, 0.62);
+        font-size: 0.94rem;
+      }
+      .modal-side-label {
+        position: absolute;
+        z-index: 7;
+        top: 22px;
+        padding: 8px 11px;
+        border: 1px solid rgba(16, 32, 58, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.62);
+        color: rgba(16, 32, 58, 0.56);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+      .modal-side-label.enhanced-label {
+        left: 22px;
+        top: 88px;
+      }
+      .modal-side-label.native-label {
+        right: 84px;
+      }
+      .compare-close {
+        position: absolute;
+        z-index: 9;
+        top: 18px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(16, 32, 58, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.68);
+        color: rgba(16, 32, 58, 0.74);
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(16, 32, 58, 0.14);
+      }
+      .modal-divider {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        bottom: 0;
+        left: var(--split);
+        width: 2px;
+        transform: translateX(-1px);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow:
+          0 0 0 1px rgba(16, 32, 58, 0.08),
+          0 18px 44px rgba(16, 32, 58, 0.18);
+        pointer-events: none;
+      }
+      .modal-handle {
+        position: absolute;
+        z-index: 6;
+        top: 50%;
+        left: var(--split);
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.66);
+        color: rgba(16, 32, 58, 0.74);
+        cursor: ew-resize;
+        transform: translate(-50%, -50%);
+        touch-action: none;
+        backdrop-filter: blur(12px) saturate(160%);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        box-shadow: 0 18px 48px rgba(16, 32, 58, 0.2);
+      }
+      .modal-handle::before,
+      .modal-handle::after {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-top: 2px solid currentColor;
+        border-left: 2px solid currentColor;
+      }
+      .modal-handle::before {
+        transform: rotate(-45deg) translate(1px, 1px);
+      }
+      .modal-handle::after {
+        transform: rotate(135deg) translate(1px, 1px);
+      }
+      .modal-hit-area {
+        position: absolute;
+        z-index: 6;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--split) - 42px);
+        width: 84px;
+        cursor: ew-resize;
+        touch-action: none;
+      }
+
       .copyright {
         margin-top: 24px;
         padding: 20px;
@@ -246,6 +560,48 @@
       .nav-links a:hover {
         opacity: 0.88;
       }
+      @media (max-width: 760px) {
+        .example-grid {
+          grid-template-columns: 1fr;
+        }
+        .sample-nav {
+          grid-template-columns: 1fr;
+          justify-items: start;
+        }
+        .nav-links {
+          justify-content: flex-start;
+        }
+        .copyright {
+          grid-template-columns: 1fr;
+        }
+        .compare-modal {
+          padding: 10px;
+        }
+        .compare-dialog {
+          height: calc(100vh - 20px);
+          min-height: 0;
+          border-radius: 18px;
+        }
+        .modal-layer {
+          padding: 116px 16px 34px;
+        }
+        .modal-side-label.enhanced-label {
+          top: 92px;
+        }
+        .modal-side-label.native-label {
+          top: 92px;
+          right: 18px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -281,8 +637,16 @@
         <div class="example-grid">
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>div</strong>
-              <span class="example-type">block</span>
+              <div class="example-head-main">
+                <strong>div</strong>
+                <span class="example-type">block</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="div"
+                aria-label="Open draggable comparison for div"
+              ></button>
             </div>
             <p>A block element with the LGGC added.</p>
             <div class="lggc sample-box">
@@ -293,8 +657,16 @@
 
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>button</strong>
-              <span class="example-type">action</span>
+              <div class="example-head-main">
+                <strong>button</strong>
+                <span class="example-type">action</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="button"
+                aria-label="Open draggable comparison for buttons"
+              ></button>
             </div>
             <p>Buttons can stay light, rounded, and readable.</p>
             <div class="button-row">
@@ -319,8 +691,16 @@
 
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>a</strong>
-              <span class="example-type">link</span>
+              <div class="example-head-main">
+                <strong>a</strong>
+                <span class="example-type">link</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="link"
+                aria-label="Open draggable comparison for link"
+              ></button>
             </div>
             <p>Anchors work well as soft glass links.</p>
             <div class="link-row">
@@ -338,8 +718,16 @@
 
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>input</strong>
-              <span class="example-type">field</span>
+              <div class="example-head-main">
+                <strong>input</strong>
+                <span class="example-type">field</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="input"
+                aria-label="Open draggable comparison for input"
+              ></button>
             </div>
             <p>Suitable for search, or use in any form areas.</p>
             <input class="lggc sample-input" placeholder="Type something..." />
@@ -347,8 +735,16 @@
 
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>card</strong>
-              <span class="example-type">content</span>
+              <div class="example-head-main">
+                <strong>card</strong>
+                <span class="example-type">content</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="card"
+                aria-label="Open draggable comparison for card"
+              ></button>
             </div>
             <p>A content card.</p>
             <article class="lggc" style="--lggc-radius: 10px">
@@ -362,8 +758,16 @@
 
           <article class="lggc example-card">
             <div class="example-head">
-              <strong>diy</strong>
-              <span class="example-type">anything</span>
+              <div class="example-head-main">
+                <strong>diy</strong>
+                <span class="example-type">anything</span>
+              </div>
+              <button
+                class="compare-open"
+                type="button"
+                data-compare-open="diy"
+                aria-label="Open draggable comparison for DIY element"
+              ></button>
             </div>
             <p>Create anything you want</p>
             <div class="lggc">Your own idea</div>
@@ -399,5 +803,293 @@
         </div>
       </footer>
     </main>
+
+    <div class="compare-modal" data-compare-modal aria-hidden="true">
+      <div
+        class="compare-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="compare-modal-title"
+      >
+        <div class="compare-canvas" data-compare-canvas>
+          <div class="modal-layer native">
+            <div class="modal-content" data-native-slot></div>
+          </div>
+          <div class="modal-layer enhanced">
+            <div class="modal-content" data-enhanced-slot></div>
+          </div>
+          <div class="compare-meta">
+            <h2 id="compare-modal-title">Drag to Compare</h2>
+            <p data-compare-description>
+              Native on the right, LGGC on the left.
+            </p>
+          </div>
+          <span class="modal-side-label enhanced-label">LGGC</span>
+          <span class="modal-side-label native-label">Native</span>
+          <div class="modal-divider" aria-hidden="true"></div>
+          <button
+            class="modal-handle"
+            type="button"
+            aria-label="Drag to compare styles"
+            data-modal-handle
+          ></button>
+          <div class="modal-hit-area" data-modal-hit aria-hidden="true"></div>
+        </div>
+        <button
+          class="compare-close"
+          type="button"
+          data-compare-close
+          aria-label="Close comparison"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <template id="compare-div-native">
+      <div class="native-box">
+        I am div <br />
+        Add me anywhere
+      </div>
+    </template>
+    <template id="compare-div-enhanced">
+      <div class="lggc sample-box">
+        I am div <br />
+        Add me anywhere
+      </div>
+    </template>
+
+    <template id="compare-button-native">
+      <div class="button-row">
+        <button class="native-button" type="button">Click me</button>
+        <button class="native-button" type="button">Get Started</button>
+        <button
+          class="native-button"
+          type="button"
+          style="
+            width: 46px;
+            height: 46px;
+            padding: 0;
+            font-weight: bold;
+            font-size: 18px;
+          "
+        >
+          +
+        </button>
+      </div>
+    </template>
+    <template id="compare-button-enhanced">
+      <div class="button-row">
+        <button class="lggc sample-button" type="button">Click me</button>
+        <button class="lggc sample-button" type="button">Get Started</button>
+        <button
+          class="lggc sample-button"
+          type="button"
+          style="
+            width: 46px;
+            height: 46px;
+            font-weight: bold;
+            font-size: 18px;
+          "
+        >
+          +
+        </button>
+      </div>
+    </template>
+
+    <template id="compare-link-native">
+      <a class="native-link" href="#">Open Source Repo</a>
+    </template>
+    <template id="compare-link-enhanced">
+      <a class="lggc sample-link" href="#" style="text-decoration: underline">
+        Open Source Repo
+      </a>
+    </template>
+
+    <template id="compare-input-native">
+      <input class="native-input" placeholder="Type something..." />
+    </template>
+    <template id="compare-input-enhanced">
+      <input class="lggc sample-input" placeholder="Type something..." />
+    </template>
+
+    <template id="compare-card-native">
+      <article class="native-panel">
+        <p>
+          A lightweight frontend library <br />
+          to create liquid glass UI effects. <br />Modern, simple, and
+          open-source.
+        </p>
+      </article>
+    </template>
+    <template id="compare-card-enhanced">
+      <article class="lggc sample-panel" style="--lggc-radius: 10px">
+        <p>
+          A lightweight frontend library <br />
+          to create liquid glass UI effects. <br />Modern, simple, and
+          open-source.
+        </p>
+      </article>
+    </template>
+
+    <template id="compare-diy-native">
+      <div class="native-box">Your own idea</div>
+    </template>
+    <template id="compare-diy-enhanced">
+      <div class="lggc">Your own idea</div>
+    </template>
+
+    <script>
+      (() => {
+        const modal = document.querySelector("[data-compare-modal]");
+        const dialog = modal.querySelector(".compare-dialog");
+        const nativeSlot = modal.querySelector("[data-native-slot]");
+        const enhancedSlot = modal.querySelector("[data-enhanced-slot]");
+        const title = modal.querySelector("#compare-modal-title");
+        const description = modal.querySelector("[data-compare-description]");
+        const closeButton = modal.querySelector("[data-compare-close]");
+        const handle = modal.querySelector("[data-modal-handle]");
+        const hitArea = modal.querySelector("[data-modal-hit]");
+        const items = {
+          div: {
+            title: "Div block",
+            description: "Same div content, native on the right and LGGC on the left.",
+          },
+          button: {
+            title: "Button actions",
+            description: "Same button group, compared in a full-size draggable view.",
+          },
+          link: {
+            title: "Anchor link",
+            description: "Same anchor text, with and without the LGGC class.",
+          },
+          input: {
+            title: "Input field",
+            description: "Same input placeholder, compared without visual overlap.",
+          },
+          card: {
+            title: "Content card",
+            description: "Same content block, native on the right and LGGC on the left.",
+          },
+          diy: {
+            title: "DIY element",
+            description: "Same custom DOM idea, shown in both styles.",
+          },
+        };
+
+        const fillSlot = (slot, templateId) => {
+          const template = document.getElementById(templateId);
+          slot.replaceChildren(template.content.cloneNode(true));
+        };
+
+        const setSplit = (clientX) => {
+          const rect = dialog.getBoundingClientRect();
+          const raw = ((clientX - rect.left) / rect.width) * 100;
+          const clamped = Math.min(90, Math.max(10, raw));
+          dialog.style.setProperty("--split", `${clamped}%`);
+        };
+
+        const openModal = (key) => {
+          const item = items[key];
+          if (!item) return;
+          fillSlot(nativeSlot, `compare-${key}-native`);
+          fillSlot(enhancedSlot, `compare-${key}-enhanced`);
+          title.textContent = item.title;
+          description.textContent = item.description;
+          dialog.style.setProperty("--split", "50%");
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          closeButton.focus();
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+        };
+
+        document.querySelectorAll("[data-compare-open]").forEach((button) => {
+          button.addEventListener("click", () => {
+            openModal(button.dataset.compareOpen);
+          });
+        });
+
+        closeButton.addEventListener("click", closeModal);
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeModal();
+          }
+        });
+
+        const startPointerDrag = (event) => {
+          const pointer = event.pointerId;
+          hitArea.setPointerCapture(pointer);
+          setSplit(event.clientX);
+
+          const move = (moveEvent) => setSplit(moveEvent.clientX);
+          const stop = () => {
+            hitArea.removeEventListener("pointermove", move);
+            hitArea.removeEventListener("pointerup", stop);
+            hitArea.removeEventListener("pointercancel", stop);
+          };
+
+          hitArea.addEventListener("pointermove", move);
+          hitArea.addEventListener("pointerup", stop, { once: true });
+          hitArea.addEventListener("pointercancel", stop, { once: true });
+        };
+
+        const startMouseDrag = (event) => {
+          event.preventDefault();
+          setSplit(event.clientX);
+
+          const move = (moveEvent) => setSplit(moveEvent.clientX);
+          const stop = () => {
+            window.removeEventListener("mousemove", move);
+            window.removeEventListener("mouseup", stop);
+          };
+
+          window.addEventListener("mousemove", move);
+          window.addEventListener("mouseup", stop, { once: true });
+        };
+
+        const startTouchDrag = (event) => {
+          event.preventDefault();
+          setSplit(event.touches[0].clientX);
+
+          const move = (moveEvent) => setSplit(moveEvent.touches[0].clientX);
+          const stop = () => {
+            window.removeEventListener("touchmove", move);
+            window.removeEventListener("touchend", stop);
+            window.removeEventListener("touchcancel", stop);
+          };
+
+          window.addEventListener("touchmove", move, { passive: false });
+          window.addEventListener("touchend", stop, { once: true });
+          window.addEventListener("touchcancel", stop, { once: true });
+        };
+
+        hitArea.addEventListener("pointerdown", startPointerDrag);
+        hitArea.addEventListener("mousedown", startMouseDrag);
+        hitArea.addEventListener("touchstart", startTouchDrag, {
+          passive: false,
+        });
+
+        handle.addEventListener("keydown", (event) => {
+          const current = parseFloat(
+            getComputedStyle(dialog).getPropertyValue("--split")
+          );
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault();
+            const delta = event.key === "ArrowLeft" ? -4 : 4;
+            const next = Math.min(90, Math.max(10, current + delta));
+            dialog.style.setProperty("--split", `${next}%`);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
