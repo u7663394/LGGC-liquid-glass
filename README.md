@@ -76,7 +76,7 @@ Example:
 
 Open [welcome page](https://u7663394.github.io/LGGC-liquid-glass/) to preview the effect.
 
-![demo](assets/demo.png)
+![demo](assets/demo_v2.png)
 
 ![effect](assets/effect.png)
 

@@ -76,7 +76,7 @@ import '@guochenwang/lggc/dist/lggc.min.css'
 
 打开 [官网/欢迎页面](https://u7663394.github.io/LGGC-liquid-glass/) 预览效果。
 
-![demo](assets/demo.png)
+![demo](assets/demo_v2.png)
 
 ![effect](assets/effect.png)
 
