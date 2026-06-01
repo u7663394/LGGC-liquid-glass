@@ -1,3 +1,10 @@
+/*
+ * Project: LGGC-liquid-glass
+ * File: lggc.css
+ * Author: Guochen Wang <guochenwang710@gmail.com>
+ * Copyright (c) 2026 Guochen Wang
+ * License: MIT
+ */
 :root {
   color-scheme: light;
 }
@@ -17,7 +24,7 @@
   min-width: 3.5rem;
   min-height: 3rem;
   padding: var(--lggc-padding);
-  border: 1px do var(--lggc-border);
+  border: 1px double var(--lggc-border);
   border-radius: var(--lggc-radius);
   background: var(--lggc-bg);
   color: rgba(17, 24, 39, 0.92);
