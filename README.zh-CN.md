@@ -25,9 +25,9 @@ https://github.com/user-attachments/assets/b3110481-47c6-414f-a1dc-8e12a1b62483
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@1.0.0/dist/lggc.css" />
 <!-- 或者 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@0.1.0/dist/lggc.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@guochenwang/lggc@1.0.0/dist/lggc.min.css" />
 ```
 
 ### NPM
