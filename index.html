@@ -529,6 +529,38 @@
         --lggc-radius: 30px;
         --lggc-bg: rgba(255, 255, 255, 0.24);
       }
+      .bookring {
+        margin-top: 24px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        --lggc-radius: 30px;
+        --lggc-bg: rgba(255, 255, 255, 0.24);
+      }
+      .bookring-copy {
+        display: grid;
+        gap: 8px;
+      }
+      .bookring-copy strong {
+        font-size: 1rem;
+      }
+      .bookring-copy p {
+        margin: 0;
+        max-width: 48rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(16, 32, 58, 0.72);
+      }
+      .bookring-widget {
+        display: flex;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+      }
       .copyright-main {
         display: grid;
         gap: 8px;
@@ -573,6 +605,12 @@
         }
         .copyright {
           grid-template-columns: 1fr;
+        }
+        .bookring {
+          grid-template-columns: 1fr;
+        }
+        .bookring-widget {
+          justify-content: flex-start;
         }
         .compare-modal {
           padding: 10px;
@@ -774,6 +812,38 @@
           </article>
         </div>
       </section>
+
+      <nav class="lggc bookring" aria-labelledby="bookring-title">
+        <div class="bookring-copy">
+          <strong id="bookring-title">Explore the Bookring</strong>
+          <p>
+            Step through a circle of book-themed websites, or visit the
+            Bookring homepage to see the full collection.
+          </p>
+        </div>
+        <div class="bookring-widget">
+   <div style="display: inline-flex; gap: 18px; align-items: center;" aria-label="Bookring navigation widget">
+        <a href="https://nikhilagurusinghe.github.io/bookring/?action=previous" title="Previous Bookring site" referrerpolicy="unsafe-url" style="transition: transform .05s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://nikhilagurusinghe.github.io/bookring/images/webring_widget/previous.png" width="32px" alt="" aria-hidden="true"/>
+            <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0">
+                Previous Bookring site
+            </span>
+        </a>
+        <a href="https://nikhilagurusinghe.github.io/bookring/" title="Bookring (i.e. a book themed webring)" referrerpolicy="unsafe-url" style="transition: transform .05s ease;" onmouseover="this.style.transform='scaleX(1.125)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://nikhilagurusinghe.github.io/bookring/images/webring_widget/book.png" width="48px" alt="" aria-hidden="true"/>
+            <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+                Bookring homepage
+            </span>
+        </a>
+        <a href="https://nikhilagurusinghe.github.io/bookring/?action=next" title="Next Bookring site" referrerpolicy="unsafe-url" style="transition: transform .05s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://nikhilagurusinghe.github.io/bookring/images/webring_widget/next.png" width="32px" alt="" aria-hidden="true"/>
+            <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+                Next Bookring site
+            </span>
+        </a>
+  </div>
+        </div>
+      </nav>
 
       <footer class="lggc copyright">
         <div class="copyright-main">
