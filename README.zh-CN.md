@@ -8,7 +8,7 @@
   🌐 Language: <a href="./README.md">English</a> | Chinese
 </p>
 
-https://github.com/user-attachments/assets/b3110481-47c6-414f-a1dc-8e12a1b62483
+https://github.com/user-attachments/assets/63931432-58f3-47df-accf-2f8005659bd7
 
 > 只需添加一个类 `class="lggc"`，即可将 DOM 元素变为液态玻璃 UI
 

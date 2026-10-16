@@ -8,7 +8,7 @@
   🌐 Language: English | <a href="./README.zh-CN.md">Chinese</a>
 </p>
 
-https://github.com/user-attachments/assets/b3110481-47c6-414f-a1dc-8e12a1b62483
+https://github.com/user-attachments/assets/63931432-58f3-47df-accf-2f8005659bd7
 
 > Turn DOM element into a liquid glass UI with a single class `class="lggc"`.
 
